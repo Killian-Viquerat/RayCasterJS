@@ -20,6 +20,14 @@ export class Vector3D{
             this.z + vector.z
         )
     }
+
+    div(scalaire){
+        return new Vector3D(
+            this.x / scalaire,
+            this.y / scalaire,
+            this.z / scalaire
+        )
+    }
     
     sub(vector){
         return new Vector3D(
@@ -27,6 +35,16 @@ export class Vector3D{
         this.y - vector.y,
         this.z - vector.z
         )
+    }
+
+    dot(vector){
+        return  ((this.x * vector.x) +
+                (this.y * vector.y) +
+                (this.z * vector.z)); 
+    }
+
+    unit(){
+        return this.div(Math.sqrt(this.dot(this)))
     }
 
     static lerp(begin, end, t){
