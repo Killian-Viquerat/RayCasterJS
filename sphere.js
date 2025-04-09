@@ -1,8 +1,8 @@
 export class Sphere{
-    constructor(position,radius,color){
+    constructor(position,radius,material){
         this.position = position;
         this.radius = radius;
-        this.color = color;
+        this.material = material;
     }
 
     intersect(ray){
@@ -19,4 +19,9 @@ export class Sphere{
         const t = Math.min(t1, t2);
         return t > 0 ? t : null;
     }
-}   
+
+    normal(point){
+        return point.sub(this.position).normalized();
+    }
+    
+}

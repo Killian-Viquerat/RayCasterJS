@@ -43,9 +43,14 @@ export class Vector3D{
                 (this.z * vector.z)); 
     }
 
-    unit(){
-        return this.div(Math.sqrt(this.dot(this)))
-    }
+    normalized() {
+        const mag = Math.sqrt(this.dot(this));
+        return new Vector3(
+          this.x / mag,
+          this.y / mag,
+          this.z / mag
+        );
+      }
 
     static lerp(begin, end, t){
         return begin.amplitude(1-t).add(end.amplitude(t));
