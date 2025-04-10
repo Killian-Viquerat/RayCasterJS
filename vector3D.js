@@ -45,7 +45,7 @@ export class Vector3D{
 
     normalized() {
         const mag = Math.sqrt(this.dot(this));
-        return new Vector3(
+        return new Vector3D(
           this.x / mag,
           this.y / mag,
           this.z / mag

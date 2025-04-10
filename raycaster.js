@@ -11,7 +11,7 @@ export class RayCaster{
 
     castRay(x, y) {
         let pourcentX = x / this.width;
-        let pourcentY = (this.height - y) / this.height;
+        let pourcentY =  y / this.height;
         let top = Vector3D.lerp(this.scene.plane.topLeft, this.scene.plane.topRight, pourcentX);
         let bottom = Vector3D.lerp(this.scene.plane.bottomLeft, this.scene.plane.bottomRight, pourcentX);
         let position = Vector3D.lerp(top, bottom, pourcentY);

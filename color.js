@@ -6,9 +6,9 @@ export class Color{
     }
     
     add(color){
-        this.r + color.r;
-        this.g + color.g;
-        this.b + color.b;
+        this.r += color.r,
+        this.g += color.g,
+        this.b += color.b
     }
 
     multiply(color){
@@ -18,6 +18,15 @@ export class Color{
             this.b * color.b
         );
     }
+
+    scale(value){
+        return new Color(
+            this.r * value,
+            this.g * value,
+            this.b * value
+        );
+    }
+
     toString(){
         return `rgb(${this.transform(this.r)},${this.transform(this.g)},${this.transform(this.b)})`;
     }
@@ -26,7 +35,7 @@ export class Color{
         return Math.floor(value * 255);
     }
 
-    clamp(value){
+    clamp(){
         this.r = Math.max(0, Math.min(1, this.r));
         this.g = Math.max(0, Math.min(1, this.g));
         this.b = Math.max(0, Math.min(1, this.b));
